@@ -150,6 +150,12 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+    # Share the session/CSRF cookies across creatr.ph and api.creatr.ph by
+    # setting SESSION_COOKIE_DOMAIN=.creatr.ph in the backend's env.
+    _cookie_domain = os.environ.get("SESSION_COOKIE_DOMAIN", "").strip()
+    if _cookie_domain:
+        SESSION_COOKIE_DOMAIN = _cookie_domain
+        CSRF_COOKIE_DOMAIN = _cookie_domain
 
 
 # CORS — allow the Next.js dev server to call the API
@@ -160,8 +166,16 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CORS_ALLOW_CREDENTIALS = True
 
-# CSRF — frontend running on a different port still counts as cross-origin
-CSRF_TRUSTED_ORIGINS = list(CORS_ALLOWED_ORIGINS)
+# CSRF — frontend running on a different port still counts as cross-origin.
+# In prod, the frontend (creatr.ph) and backend (api.creatr.ph) are separate
+# origins, so set CSRF_TRUSTED_ORIGINS explicitly. Falls back to the CORS
+# allowlist for dev where they're typically the same.
+_csrf_trusted = os.environ.get("CSRF_TRUSTED_ORIGINS", "").strip()
+CSRF_TRUSTED_ORIGINS = (
+    [o.strip() for o in _csrf_trusted.split(",") if o.strip()]
+    if _csrf_trusted
+    else list(CORS_ALLOWED_ORIGINS)
+)
 
 
 REST_FRAMEWORK = {

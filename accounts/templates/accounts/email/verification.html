@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title>Verify your Creatr email</title>
+    <!--[if mso]>
+    <style>
+      table, td, h1, h2, p, a { font-family: Arial, Helvetica, sans-serif !important; }
+    </style>
+    <![endif]-->
+  </head>
+  <body style="margin:0;padding:0;background-color:#F5F5F0;">
+    <!-- Preheader (hidden in body, shown in inbox preview) -->
+    <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#F5F5F0;">
+      Confirm your email to finish setting up your Creatr profile. Link expires in {{ expires_hours }} hours.
+    </div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F5F5F0;">
+      <tr>
+        <td align="center" style="padding:32px 16px 48px;">
+
+          <!-- Wordmark -->
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+            <tr>
+              <td align="center" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:28px;font-weight:700;letter-spacing:-0.6px;color:#1a1a1a;line-height:1;">
+                Creatr
+              </td>
+            </tr>
+          </table>
+
+          <!-- Card -->
+          <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;background-color:#ffffff;border:1px solid #e5e5e5;border-radius:20px;">
+            <tr>
+              <td style="padding:40px 40px 32px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;">
+
+                <!-- Eyebrow pill -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td style="background-color:#F5F5F0;border:1px solid #e5e5e5;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600;color:#555555;line-height:1;letter-spacing:0.2px;">
+                      Welcome to Creatr
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Heading -->
+                <h1 style="margin:20px 0 12px;font-size:28px;font-weight:600;letter-spacing:-0.6px;line-height:1.2;color:#1a1a1a;">
+                  Confirm your email
+                </h1>
+
+                <!-- Body copy -->
+                <p style="margin:0 0 28px;font-size:15px;line-height:1.6;color:#555555;">
+                  {% if user.first_name %}Hi {{ user.first_name }} — t{% else %}T{% endif %}ap the button below to verify your email and finish setting up your portfolio. Once you're in, you can pick your <strong style="color:#1a1a1a;font-weight:600;">@handle</strong>, add your sample work, and start sharing your link.
+                </p>
+
+                <!-- Gradient CTA button (with solid fallback for Outlook/clients that don't support gradients) -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 28px;">
+                  <tr>
+                    <td align="center" bgcolor="#8E62B0" style="border-radius:12px;background-color:#8E62B0;background-image:linear-gradient(135deg,#7F77DD 0%,#D4537E 100%);">
+                      <a href="{{ link }}"
+                         style="display:inline-block;padding:14px 28px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;font-weight:600;line-height:1;color:#ffffff;text-decoration:none;border-radius:12px;mso-padding-alt:0;">
+                        <!--[if mso]>&nbsp;&nbsp;&nbsp;<![endif]-->
+                        Verify my email
+                        <!--[if mso]>&nbsp;&nbsp;&nbsp;<![endif]-->
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Fallback link block -->
+                <p style="margin:0 0 8px;font-size:13px;line-height:1.5;color:#888888;">
+                  Or paste this link into your browser:
+                </p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 28px;">
+                  <tr>
+                    <td style="background-color:#F5F5F0;border:1px solid #e5e5e5;border-radius:10px;padding:12px 14px;">
+                      <a href="{{ link }}" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;line-height:1.5;color:#555555;text-decoration:none;word-break:break-all;">{{ link }}</a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Divider -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td style="border-top:1px solid #e5e5e5;font-size:0;line-height:0;height:1px;">&nbsp;</td>
+                  </tr>
+                </table>
+
+                <!-- Fine print -->
+                <p style="margin:20px 0 0;font-size:13px;line-height:1.55;color:#888888;">
+                  This link expires in <strong style="color:#555555;font-weight:600;">{{ expires_hours }} hours</strong>. If you didn't create a Creatr account, you can safely ignore this email — no account will be made.
+                </p>
+
+              </td>
+            </tr>
+          </table>
+
+          <!-- Footer -->
+          <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;margin-top:24px;">
+            <tr>
+              <td align="center" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:1.6;color:#9a9a93;">
+                Creatr — your portfolio, rates, and socials in one shareable link.<br />
+                Made for Filipino creators.
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

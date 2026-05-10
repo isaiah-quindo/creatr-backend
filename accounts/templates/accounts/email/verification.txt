@@ -1,0 +1,16 @@
+Creatr — confirm your email
+
+{% if user.first_name %}Hi {{ user.first_name }},{% endif %}
+
+Tap the link below to verify your email and finish setting up your portfolio.
+Once you're in, you can pick your @handle, add your sample work, and start
+sharing your link.
+
+Verify your email:
+{{ link }}
+
+This link expires in {{ expires_hours }} hours. If you didn't create a Creatr
+account, you can safely ignore this email.
+
+— Creatr
+Your portfolio, rates, and socials in one shareable link.
